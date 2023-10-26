@@ -17,5 +17,6 @@ class HomePageController extends GetxController{
     IconButton(onPressed: () {}, icon: const Icon(Icons.blur_circular_outlined,color: Colors.white,),),
     IconButton(onPressed: () {}, icon: const Icon(Icons.settings,color: Colors.white,),),
   ];
+  var plans =[1,2,3,4,5,6];
 
 }

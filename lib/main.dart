@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_demo/screens/home_page.dart';
 import 'package:getx_demo/screens/splash_page.dart';
 
 void main() {
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         useMaterial3: true,
       ),
-      home: const SpalshPage(),
+      home: const SplashPage(),
       getPages:const [
       ],
     );
