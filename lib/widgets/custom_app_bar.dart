@@ -4,8 +4,16 @@ import '../themes/app_theme.dart';
 
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({Key? key, required this.onLeftIconTap}) : super(key: key);
+  CustomAppBar({Key? key,
+    required this.onRightIconTap,
+    this.rightIconWidget,
+    required this.onLeftIconTap,
+    this.leftIconWidget}) : super(key: key);
+
+  final VoidCallback onRightIconTap;
   final VoidCallback onLeftIconTap;
+  Widget? rightIconWidget;
+  Widget? leftIconWidget;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -18,14 +26,14 @@ class CustomAppBar extends StatelessWidget {
             color: greyBoxBack,
             borderRadius: BorderRadius.circular(10),
           ),
-          child: const Icon(
+          child:rightIconWidget?? const Icon(
             Icons.dashboard_outlined,
             size: 18,
           ),
         ),
         InkWell(
           onTap: (){
-            onLeftIconTap.call();
+            onRightIconTap.call();
           },
           child: Container(
             height: 40,

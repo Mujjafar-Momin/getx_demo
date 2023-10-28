@@ -37,9 +37,9 @@ class _HomePageState extends State<HomePage> {
                           top: 0,
                           right: 0,
                           left: 0,
-                          child: CustomAppBar(onLeftIconTap: (){
+                          child: CustomAppBar(onRightIconTap: (){
                             Get.to(const ProfilePage(),binding: ProfilePageBinding());
-                          }),
+                          }, onLeftIconTap: () {  },),
                       ),
                       Positioned(
                         top: 50,

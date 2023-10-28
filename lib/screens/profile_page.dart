@@ -28,14 +28,17 @@ class ProfilePage extends StatelessWidget {
                         width: double.maxFinite,
                         height: context.height * .5,
                         decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          borderRadius: BorderRadius.all(Radius.circular(25)),
                           color: pinkBackGround,
                         ),
-                        padding: const EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(20),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            CustomAppBar(onLeftIconTap: () {}),
+                            CustomAppBar(
+                              onRightIconTap: () {},
+                              onLeftIconTap: () {},
+                            ),
                             CircleAvatar(
                               maxRadius: 35,
                               minRadius: 20,
@@ -62,7 +65,8 @@ class ProfilePage extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  InkWell(
+                                  GestureDetector(
+                                    behavior: HitTestBehavior.opaque,
                                     onTap: () => controller.selectEvent(0),
                                     child: Container(
                                       height: 50,
@@ -77,7 +81,8 @@ class ProfilePage extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  InkWell(
+                                  GestureDetector(
+                                    behavior: HitTestBehavior.opaque,
                                     onTap: () => controller.selectEvent(1),
                                     child: Container(
                                       height: 50,
@@ -109,95 +114,254 @@ class ProfilePage extends StatelessWidget {
                 children: [
                   Positioned(
                     child: Container(
+                      padding: const EdgeInsets.symmetric(vertical: 30.0, horizontal: 34),
                       width: double.maxFinite,
-                      decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20)), color: Colors.redAccent),
+                      decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(25),
+                          ),
+                          color: Colors.redAccent),
                       height: context.height * .5,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 24),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Your activity",
+                                style: textStyle(color: Colors.white, size: 24, weight: FontWeight.w500),
+                              ),
+                              const Icon(
+                                Icons.more_vert,
+                                color: Colors.white,
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Expanded(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.end,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  "Your activity",
-                                  style: textStyle(color: Colors.white, size: 24, weight: FontWeight.w500),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      height: context.height * .2,
+                                      child: Align(
+                                        alignment: Alignment.bottomCenter,
+                                        child: FractionallySizedBox(
+                                          heightFactor: 5 / 10,
+                                          child: Container(
+                                            width: 50,
+                                            decoration: const BoxDecoration(
+                                              color: Colors.white30,
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(10),
+                                              ),
+                                            ),
+                                            child: const Text(''),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 4,
+                                    ),
+                                    Text(
+                                      '${controller.date}',
+                                      style: textStyle(color: Colors.white),
+                                    ),
+                                  ],
                                 ),
-                                const Icon(
-                                  Icons.info,
-                                  color: Colors.white,
-                                )
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      height: context.height * .2,
+                                      child: Align(
+                                        alignment: Alignment.bottomCenter,
+                                        child: FractionallySizedBox(
+                                          heightFactor: 7 / 10,
+                                          child: Container(
+                                            width: 50,
+                                            decoration: const BoxDecoration(
+                                              color: Colors.white30,
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(10),
+                                              ),
+                                            ),
+                                            child: const Text(''),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 4,
+                                    ),
+                                    Text(
+                                      '${controller.date}',
+                                      style: textStyle(color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      height: context.height * .2,
+                                      child: Align(
+                                        alignment: Alignment.bottomCenter,
+                                        child: FractionallySizedBox(
+                                          heightFactor: 9 / 10,
+                                          child: Container(
+                                            width: 50,
+                                            decoration: const BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(10),
+                                              ),
+                                            ),
+                                            child: const Text(''),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 4,
+                                    ),
+                                    Text(
+                                      '${controller.date}',
+                                      style: textStyle(color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      height: context.height * .2,
+                                      child: Align(
+                                        alignment: Alignment.bottomCenter,
+                                        child: FractionallySizedBox(
+                                          heightFactor: 8 / 10,
+                                          child: Container(
+                                            width: 50,
+                                            decoration: const BoxDecoration(
+                                              color: Colors.white30,
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(10),
+                                              ),
+                                            ),
+                                            child: const Text(''),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 4,
+                                    ),
+                                    Text(
+                                      '${controller.date}',
+                                      style: textStyle(color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      height: context.height * .2,
+                                      child: Align(
+                                        alignment: Alignment.bottomCenter,
+                                        child: FractionallySizedBox(
+                                          heightFactor: 7 / 10,
+                                          child: Container(
+                                            width: 50,
+                                            decoration: const BoxDecoration(
+                                              color: Colors.white30,
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(10),
+                                              ),
+                                            ),
+                                            child: const Text(''),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 4,
+                                    ),
+                                    Text(
+                                      '${controller.date}',
+                                      style: textStyle(color: Colors.white),
+                                    ),
+                                  ],
+                                ),
                               ],
                             ),
-                            const SizedBox(height: 10,),
-                            Expanded(
-                              child: Row(
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Column(
-                                    children: [
-                                    Container(
-                                      width: 40,
-                                      decoration: const BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.all(Radius.circular(4))
-                                      ),
-                                      child: const Text(''),
-                                    )
-                                      ],
-                                  )
-                                ],
-                              ),
-                            ),
-                            const SizedBox(height: 10,),
-                            Expanded(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "280",
-                                        style: textStyle(size: 24, color: Colors.white, weight: FontWeight.w500),
-                                      ),
-                                      Text(
-                                        "Calories",
-                                        style: textStyle(color: Colors.white),
-                                      ),
-                                    ],
+                                  Text(
+                                    "280",
+                                    style: textStyle(size: 24, color: Colors.white, weight: FontWeight.w500),
                                   ),
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "00:42",
-                                        style: textStyle(size: 24, color: Colors.white, weight: FontWeight.w500),
-                                      ),
-                                      Text(
-                                        "Times",
-                                        style: textStyle(color: Colors.white),
-                                      ),
-                                    ],
-                                  ),
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "1.2",
-                                        style: textStyle(size: 24, color: Colors.white, weight: FontWeight.w500),
-                                      ),
-                                      Text(
-                                        "Kilometres",
-                                        style: textStyle(color: Colors.white),
-                                      ),
-                                    ],
+                                  Text(
+                                    "Calories",
+                                    style: textStyle(color: Colors.white),
                                   ),
                                 ],
                               ),
-                            ),
-                          ],
-                        ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "00:42",
+                                    style: textStyle(size: 24, color: Colors.white, weight: FontWeight.w500),
+                                  ),
+                                  Text(
+                                    "Times",
+                                    style: textStyle(color: Colors.white),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "1.2",
+                                    style: textStyle(size: 24, color: Colors.white, weight: FontWeight.w500),
+                                  ),
+                                  Text(
+                                    "Kilometres",
+                                    style: textStyle(color: Colors.white),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: context.height * .23,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(vertical: 30.0, horizontal: 34),
+                      child: Text(
+                        '---------------------------------',
+                        style: textStyle(color: Colors.white, letterSpace: 2),
                       ),
                     ),
                   ),
