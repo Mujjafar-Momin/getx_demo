@@ -40,6 +40,7 @@ dependencies:
   flutter_svg: ^2.0.7
   flutter_emoji: ^2.5.1
   intl: ^0.18.1
+  location: ^5.0.3
 
 dev_dependencies:
   flutter_test:

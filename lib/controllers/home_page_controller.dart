@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:location/location.dart';
+
+import '../services/location_services.dart';
 
 class HomePageController extends GetxController{
   bool isLoading = true;
@@ -19,4 +22,14 @@ class HomePageController extends GetxController{
   ];
   var plans =[1,2,3,4,5,6];
 
+  var lat,log;
+  LocationData? loc;
+  void locationInit() async{
+    loc=await LocationServices.instance.getLocationData();
+    if(loc!=null){
+      debugPrint('lat ${loc!.latitude}');
+      debugPrint('longitude ${loc!.longitude}');
+      debugPrint('accuracy ${loc!.accuracy}');
+    }
+  }
 }

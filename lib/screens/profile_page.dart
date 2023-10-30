@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_demo/controllers/profile_page_controller.dart';
@@ -172,7 +172,7 @@ class ProfilePage extends StatelessWidget {
                                       height: 4,
                                     ),
                                     Text(
-                                      '${controller.date}',
+                                      controller.date,
                                       style: textStyle(color: Colors.white),
                                     ),
                                   ],
@@ -203,7 +203,7 @@ class ProfilePage extends StatelessWidget {
                                       height: 4,
                                     ),
                                     Text(
-                                      '${controller.date}',
+                                      controller.date,
                                       style: textStyle(color: Colors.white),
                                     ),
                                   ],
@@ -234,7 +234,7 @@ class ProfilePage extends StatelessWidget {
                                       height: 4,
                                     ),
                                     Text(
-                                      '${controller.date}',
+                                      controller.date,
                                       style: textStyle(color: Colors.white),
                                     ),
                                   ],
@@ -265,7 +265,7 @@ class ProfilePage extends StatelessWidget {
                                       height: 4,
                                     ),
                                     Text(
-                                      '${controller.date}',
+                                      controller.date,
                                       style: textStyle(color: Colors.white),
                                     ),
                                   ],
@@ -296,7 +296,7 @@ class ProfilePage extends StatelessWidget {
                                       height: 4,
                                     ),
                                     Text(
-                                      '${controller.date}',
+                                      controller.date,
                                       style: textStyle(color: Colors.white),
                                     ),
                                   ],

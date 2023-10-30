@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:getx_demo/bindings/profile_page_binding.dart';
 import 'package:getx_demo/controllers/home_page_controller.dart';
 import 'package:getx_demo/screens/profile_page.dart';
+import 'package:getx_demo/services/location_services.dart';
 import 'package:getx_demo/themes/app_theme.dart';
 import 'package:getx_demo/widgets/custom_app_bar.dart';
 
@@ -60,6 +61,10 @@ class _HomePageState extends State<HomePage> {
                                     width: 5,
                                   ),
                                   SvgPicture.asset('assets/svgImages/wavehand.svg', height: 26),
+                                  const Spacer(),
+                                  IconButton(onPressed: (){
+                                    controller.locationInit();
+                                  }, icon: const Icon(Icons.pin_drop_outlined))
                                 ],
                               ),
                               const SizedBox(
