@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_demo/bindings/home_page_binding.dart';
+import 'package:getx_demo/screens/review_call_page.dart';
 import 'package:getx_demo/screens/splash_page.dart';
 
 void main() {
@@ -19,6 +21,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const SplashPage(),
+      initialBinding: HomePageBinding(),
       getPages:const [
       ],
     );
