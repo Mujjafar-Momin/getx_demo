@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_demo/bindings/camera_page_binding.dart';
 import 'package:getx_demo/bindings/home_page_binding.dart';
-import 'package:getx_demo/screens/camera_page.dart';
+import 'package:getx_demo/screens/camera/camera_page.dart';
+import 'package:getx_demo/screens/camera/qr_scanner_page.dart';
 import 'package:getx_demo/screens/home_page.dart';
 
 
@@ -21,7 +22,7 @@ class _SplashPageState extends State<SplashPage> {
       body: Center(
         child: ElevatedButton(
           onPressed: (){
-            Get.offAll(const CameraPage(),binding: CameraPageBinding(),);
+            Get.offAll(const QrScannerPage(),binding: CameraBinding(),);
           },
           child: const Text("Go to Camera"),
         ),

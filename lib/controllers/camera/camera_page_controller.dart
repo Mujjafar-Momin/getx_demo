@@ -1,12 +1,15 @@
 import 'dart:developer';
-import 'dart:ffi';
 import 'dart:io';
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_demo/bindings/camera_page_binding.dart';
+import 'package:getx_demo/screens/camera/qr_scanner_page.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart' as p;
+// import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 enum FlashStatus { AUTO, OFF, ON }
 
@@ -16,7 +19,7 @@ class CameraPageController extends GetxController {
   var isFlashOn = true.obs;
   late CameraController cameraController;
   int selectedCameraIndex = 0;
-  File? file;
+  File? clickedFile;
   Directory? appDocumentsDir;
   String storedPath = '';
   var storedSuccessfully = false.obs;
@@ -28,7 +31,7 @@ class CameraPageController extends GetxController {
       update();
     }).catchError((e) {
       log('Camera initialize error $e');
-      if (e is CameraException) {
+      if (e is CameraException ) {
         switch (e.code) {
           case 'CameraAccessDenied':
             print('access denied');
@@ -53,7 +56,7 @@ class CameraPageController extends GetxController {
     try {
       await cameraController.setFlashMode(FlashMode.auto);
       XFile picture = await cameraController.takePicture();
-      file = File(picture.path);
+      clickedFile = File(picture.path);
       saveToGallery();
       update();
     } catch (e) {
@@ -64,11 +67,11 @@ class CameraPageController extends GetxController {
 
   saveToGallery() async {
     appDocumentsDir = await getApplicationDocumentsDirectory();
-    if (appDocumentsDir != null && file != null) {
+    if (appDocumentsDir != null && clickedFile != null) {
       String dirPath ='${ appDocumentsDir!.path}/Pictures/pics';
       await Directory(dirPath).create(recursive: true);
       final String filePath = '$dirPath/${timestamp()}.jpg';
-      final res = await ImageGallerySaver.saveFile(file!.path);
+      final res = await ImageGallerySaver.saveFile(clickedFile!.path);
       if (res['isSuccess'] == true) {
         storedSuccessfully(true);
         Get.snackbar(
@@ -111,6 +114,10 @@ class CameraPageController extends GetxController {
     isLoading(true);
     update();
     initCamera();
+  }
+
+  navigateToScanner(){
+    Get.to(()=>QrScannerPage(),binding: CameraBinding());
   }
 
   @override

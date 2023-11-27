@@ -1,7 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_demo/controllers/camera_page_controller.dart';
+import 'package:getx_demo/controllers/camera/camera_page_controller.dart';
 
 class CameraPage extends StatelessWidget {
   const CameraPage({Key? key}) : super(key: key);
@@ -47,7 +47,7 @@ class CameraPage extends StatelessWidget {
                                   ),
                                 ),
                                 GestureDetector(
-                                  onTap: () {},
+                                  onTap: ()=>controller.navigateToScanner(),
                                   child: const Padding(
                                     padding: EdgeInsets.all(14.0),
                                     child: Icon(
@@ -83,11 +83,11 @@ class CameraPage extends StatelessWidget {
                                       color: Colors.white10,
                                       shape: BoxShape.circle,
                                     ),
-                                    child: controller.file != null
+                                    child: controller.clickedFile != null
                                         ? ClipRRect(
                                             borderRadius: const BorderRadius.all(Radius.circular(20)),
                                             child: Image.file(
-                                              controller.file!,
+                                              controller.clickedFile!,
                                               fit: BoxFit.fill,
                                             ),
                                           )
