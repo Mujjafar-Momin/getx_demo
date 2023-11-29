@@ -9,6 +9,7 @@ import 'package:getx_demo/screens/sms_autofill/login_page.dart';
 import 'package:getx_demo/screens/splash_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 

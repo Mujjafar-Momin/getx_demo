@@ -37,6 +37,13 @@ class LoginPage extends StatelessWidget {
                   onPressed: ()=>controller.navigateToOtp(),
                   child: const Text("Login/Send OTP"),
                 ),
+                const SizedBox(height: 20,),
+                ElevatedButton(
+                  onPressed: (){
+                    controller.showNotification();
+                  },
+                  child: const Text("Get Notification"),
+                ),
               ],
             ),
           ),
